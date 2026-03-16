@@ -1,76 +1,49 @@
-# Contributor Covenant Code of Conduct
+# Kode Etik Kontributor
 
-## Our Pledge
+## Komitmen Kami
 
-In the interest of fostering an open and welcoming environment, we as
-contributors and maintainers pledge to making participation in our project and
-our community a harassment-free experience for everyone, regardless of age, body
-size, disability, ethnicity, sex characteristics, gender identity and expression,
-level of experience, education, socio-economic status, nationality, personal
-appearance, race, religion, or sexual identity and orientation.
+Demi menciptakan lingkungan yang terbuka dan ramah, kami sebagai kontributor dan pengelola berkomitmen untuk menjadikan partisipasi dalam proyek dan komunitas ini sebagai pengalaman bebas dari pelecehan bagi semua orang, tanpa memandang usia, bentuk tubuh, disabilitas, etnis, karakteristik seks, identitas dan ekspresi gender, tingkat pengalaman, pendidikan, status sosial-ekonomi, kebangsaan, penampilan pribadi, ras, agama, atau identitas dan orientasi seksual.
 
-## Our Standards
+## Standar Kami
 
-Examples of behavior that contributes to creating a positive environment
-include:
+Contoh perilaku yang berkontribusi pada terciptanya lingkungan positif meliputi:
 
-* Using welcoming and inclusive language
-* Being respectful of differing viewpoints and experiences
-* Gracefully accepting constructive criticism
-* Focusing on what is best for the community
-* Showing empathy towards other community members
+* Menggunakan bahasa yang ramah dan inklusif
+* Menghormati sudut pandang dan pengalaman yang berbeda
+* Menerima kritik yang membangun dengan lapang dada
+* Berfokus pada apa yang terbaik bagi komunitas
+* Menunjukkan empati terhadap anggota komunitas lainnya
 
-Examples of unacceptable behavior by participants include:
+Contoh perilaku yang tidak dapat diterima meliputi:
 
-* The use of sexualized language or imagery and unwelcome sexual attention or
-  advances
-* Trolling, insulting/derogatory comments, and personal or political attacks
-* Public or private harassment
-* Publishing others' private information, such as a physical or electronic
-  address, without explicit permission
-* Other conduct which could reasonably be considered inappropriate in a
-  professional setting
+* Penggunaan bahasa atau gambar yang bersifat seksual serta perhatian atau ajakan seksual yang tidak diinginkan
+* Trolling, komentar yang menghina/merendahkan, serta serangan pribadi atau politik
+* Pelecehan secara publik maupun privat
+* Mempublikasikan informasi pribadi orang lain, seperti alamat fisik atau elektronik, tanpa izin eksplisit
+* Perilaku lain yang secara wajar dapat dianggap tidak pantas dalam lingkungan profesional
 
-## Our Responsibilities
+## Tanggung Jawab Kami
 
-Project maintainers are responsible for clarifying the standards of acceptable
-behavior and are expected to take appropriate and fair corrective action in
-response to any instances of unacceptable behavior.
+Pengelola proyek bertanggung jawab untuk menjelaskan standar perilaku yang dapat diterima dan diharapkan mengambil tindakan korektif yang adil terhadap setiap kasus perilaku yang tidak dapat diterima.
 
-Project maintainers have the right and responsibility to remove, edit, or
-reject comments, commits, code, wiki edits, issues, and other contributions
-that are not aligned to this Code of Conduct, or to ban temporarily or
-permanently any contributor for other behaviors that they deem inappropriate,
-threatening, offensive, or harmful.
+Pengelola proyek memiliki hak dan tanggung jawab untuk menghapus, mengedit, atau menolak komentar, commit, kode, edit wiki, isu, dan kontribusi lain yang tidak sesuai dengan Kode Etik ini, atau untuk melarang sementara maupun permanen kontributor yang menunjukkan perilaku yang dianggap tidak pantas, mengancam, ofensif, atau berbahaya.
 
-## Scope
+## Ruang Lingkup
 
-This Code of Conduct applies both within project spaces and in public spaces
-when an individual is representing the project or its community. Examples of
-representing a project or community include using an official project e-mail
-address, posting via an official social media account, or acting as an appointed
-representative at an online or offline event. Representation of a project may be
-further defined and clarified by project maintainers.
+Kode Etik ini berlaku baik di dalam ruang proyek maupun di ruang publik ketika seseorang mewakili proyek atau komunitasnya. Contoh representasi proyek atau komunitas termasuk menggunakan alamat email resmi proyek, memposting melalui akun media sosial resmi, atau bertindak sebagai perwakilan yang ditunjuk di acara daring maupun luring. Representasi proyek dapat didefinisikan dan diperjelas lebih lanjut oleh pengelola proyek.
 
-## Enforcement
+## Penegakan
 
-Instances of abusive, harassing, or otherwise unacceptable behavior may be
-reported by contacting the project team at **chavare.ravi123@gmail.com**. All
-complaints will be reviewed and investigated and will result in a response that
-is deemed necessary and appropriate to the circumstances. The project team is
-obligated to maintain confidentiality with regard to the reporter of an incident.
-Further details of specific enforcement policies may be posted separately.
+Kasus perilaku yang bersifat abusif, melecehkan, atau tidak dapat diterima dapat dilaporkan dengan menghubungi tim proyek di **trianandaadisti04@gmail.com**. Semua laporan akan ditinjau dan diselidiki serta akan menghasilkan respons yang dianggap perlu dan sesuai dengan keadaan. Tim proyek berkewajiban menjaga kerahasiaan pelapor insiden. Detail lebih lanjut mengenai kebijakan penegakan dapat dipublikasikan secara terpisah.
 
-Project maintainers who do not follow or enforce the Code of Conduct in good
-faith may face temporary or permanent repercussions as determined by other
-members of the project's leadership.
+Pengelola proyek yang tidak mengikuti atau menegakkan Kode Etik ini dengan itikad baik dapat menghadapi konsekuensi sementara atau permanen sebagaimana ditentukan oleh anggota kepemimpinan proyek lainnya.
 
-## Attribution
+## Atribusi
 
-This Code of Conduct is adapted from the [Contributor Covenant][homepage], version 1.4,
-available at https://www.contributor-covenant.org/version/1/4/code-of-conduct.html
+Kode Etik ini diadaptasi dari [Contributor Covenant][homepage], versi 1.4,
+tersedia di https://www.contributor-covenant.org/version/1/4/code-of-conduct.html
 
 [homepage]: https://www.contributor-covenant.org
 
-For answers to common questions about this code of conduct, see
+Untuk jawaban atas pertanyaan umum tentang Kode Etik ini, lihat
 https://www.contributor-covenant.org/faq
