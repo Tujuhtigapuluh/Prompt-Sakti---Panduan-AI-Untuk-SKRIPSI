@@ -6,6 +6,12 @@ Aplikasi web interaktif yang berisi koleksi lengkap **Prompt AI (ChatGPT, Claude
 ![React](https://img.shields.io/badge/React-18.x-blue)
 ![Vite](https://img.shields.io/badge/Vite-5.x-purple)
 ![Tailwind](https://img.shields.io/badge/TailwindCSS-3.x-38B2AC)
+[![All Contributors](https://img.shields.io/github/contributors/Python-World/Prompt-Sakti---Panduan-AI-Untuk-SKRIPSI)](#contributors-)
+![Issues](https://img.shields.io/github/issues/Python-World/Prompt-Sakti---Panduan-AI-Untuk-SKRIPSI)
+![Pull Requests](https://img.shields.io/github/issues-pr/Prompt-Sakti---Panduan-AI-Untuk-SKRIPSI?)
+![Forks](https://img.shields.io/github/forks/Python-World/Prompt-Sakti---Panduan-AI-Untuk-SKRIPSI)
+![Stars](https://img.shields.io/github/stars/Python-World/Prompt-Sakti---Panduan-AI-Untuk-SKRIPSI)
+![License](https://img.shields.io/github/license/Python-World/Prompt-Sakti---Panduan-AI-Untuk-SKRIPSI)
 
 ## ✨ Fitur Utama
 - **45+ Prompt Lengkap:** Dari pencarian judul, Bab I hingga Bab V, hingga persiapan sidang.
