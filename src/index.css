@@ -1,9 +1,12 @@
 @import "tailwindcss";
 
-@keyframes fadeIn {
+/* ========================
+   ANIMATION SYSTEM
+======================== */
+@keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(8px);
+    transform: translateY(12px);
   }
   to {
     opacity: 1;
@@ -12,28 +15,12 @@
 }
 
 .animate-fadeIn {
-  animation: fadeIn 0.3s ease-out;
+  animation: fadeInUp 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-}
-
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
-  border-radius: 3px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
-}
-
-/* Smooth scroll */
+/* ========================
+   GLOBAL SMOOTHNESS
+======================== */
 html {
   scroll-behavior: smooth;
 }
@@ -41,4 +28,69 @@ html {
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* ========================
+   SCROLLBAR (UPGRADED)
+======================== */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #cbd5e1, #94a3b8);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #94a3b8, #64748b);
+}
+
+/* ========================
+   TEXT SELECTION
+======================== */
+::selection {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+/* ========================
+   FOCUS RING (ACCESSIBLE)
+======================== */
+:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px #cbd5f5;
+  border-radius: 4px;
+}
+
+/* ========================
+   INTERACTION POLISH
+======================== */
+button {
+  transition: all 0.2s ease;
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+/* ========================
+   CARD FEEL (OPTIONAL GLOBAL)
+======================== */
+.card-soft {
+  background: white;
+  border: 1px solid #e5e7eb;
+  transition: all 0.2s ease;
+}
+
+.card-soft:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  transform: translateY(-2px);
 }

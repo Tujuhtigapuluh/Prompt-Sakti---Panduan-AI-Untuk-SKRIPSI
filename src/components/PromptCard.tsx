@@ -8,16 +8,16 @@ interface PromptCardProps {
 
 function getBadgeStyle(badge: string): string {
   if (badge.includes("WAJIB"))
-    return "bg-gray-800 text-white";
+    return "bg-gray-900 text-white";
   if (badge.includes("KUALITATIF"))
-    return "bg-gray-200 text-gray-800";
+    return "bg-gray-100 text-gray-700 border border-gray-200";
   if (badge.includes("KUANTITATIF"))
-    return "bg-gray-300 text-gray-800";
+    return "bg-gray-200 text-gray-800";
   if (badge.includes("STARTER"))
-    return "bg-gray-100 text-gray-800 border border-gray-300";
+    return "bg-white text-gray-700 border border-gray-300";
   if (badge.includes("BARU"))
-    return "bg-gray-100 text-gray-800";
-  return "bg-gray-100 text-gray-700";
+    return "bg-gray-100 text-gray-700";
+  return "bg-gray-100 text-gray-600";
 }
 
 export default function PromptCard({ prompt, index }: PromptCardProps) {
@@ -43,28 +43,37 @@ export default function PromptCard({ prompt, index }: PromptCardProps) {
   };
 
   return (
-    <div className={`bg-white border overflow-hidden ${
-      prompt.badge?.includes("WAJIB") ? "border-gray-800" : "border-gray-200"
-    }`}>
+    <div
+      className={`group bg-white/80 backdrop-blur-sm border rounded-xl overflow-hidden transition-all duration-200 
+      ${prompt.badge?.includes("WAJIB")
+        ? "border-gray-900 shadow-sm"
+        : "border-gray-200 hover:border-gray-300 hover:shadow-sm"}`}
+    >
       {/* Header */}
       <button
         onClick={() => setExpanded(!expanded)}
-        className="w-full flex items-center justify-between p-4 text-left hover:bg-gray-50"
+        className="w-full flex items-center justify-between p-4 text-left transition-colors duration-200 hover:bg-gray-50/70"
       >
         <div className="flex items-center gap-3 flex-wrap">
-          <span className={`flex-shrink-0 w-6 h-6 text-white text-xs font-medium flex items-center justify-center ${
-            prompt.badge?.includes("WAJIB")
-              ? "bg-gray-800"
-              : "bg-gray-600"
-          }`}>
+          {/* Number */}
+          <span
+            className={`flex-shrink-0 w-7 h-7 rounded-full text-xs font-semibold flex items-center justify-center shadow-sm
+            ${prompt.badge?.includes("WAJIB")
+              ? "bg-gray-900 text-white"
+              : "bg-gray-200 text-gray-700"}`}
+          >
             {index + 1}
           </span>
-          <h3 className="text-base font-medium text-gray-800">
+
+          {/* Title */}
+          <h3 className="text-[15px] font-medium text-gray-900 tracking-tight">
             {prompt.title}
           </h3>
+
+          {/* Badge */}
           {prompt.badge && (
             <span
-              className={`inline-flex items-center px-2 py-0.5 text-xs ${getBadgeStyle(
+              className={`inline-flex items-center px-2 py-0.5 rounded-md text-[11px] tracking-wide ${getBadgeStyle(
                 prompt.badge
               )}`}
             >
@@ -72,9 +81,11 @@ export default function PromptCard({ prompt, index }: PromptCardProps) {
             </span>
           )}
         </div>
+
+        {/* Arrow */}
         <svg
-          className={`w-4 h-4 text-gray-500 flex-shrink-0 ml-2 ${
-            expanded ? "rotate-180" : ""
+          className={`w-4 h-4 text-gray-400 flex-shrink-0 ml-2 transition-transform duration-200 ${
+            expanded ? "rotate-180 text-gray-700" : ""
           }`}
           fill="none"
           viewBox="0 0 24 24"
@@ -83,7 +94,7 @@ export default function PromptCard({ prompt, index }: PromptCardProps) {
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
-            strokeWidth={2}
+            strokeWidth={1.8}
             d="M19 9l-7 7-7-7"
           />
         </svg>
@@ -91,17 +102,19 @@ export default function PromptCard({ prompt, index }: PromptCardProps) {
 
       {/* Content */}
       {expanded && (
-        <div className="px-4 pb-4 space-y-3 border-t border-gray-100">
-          {/* Prompt Text */}
-          <div className="relative bg-gray-50 border border-gray-200 p-4 mt-3">
+        <div className="px-4 pb-4 space-y-4 border-t border-gray-100">
+          
+          {/* Prompt Box */}
+          <div className="relative bg-gray-50/70 border border-gray-200 rounded-lg p-4 mt-3">
+            
+            {/* Copy Button */}
             <div className="absolute top-2 right-2">
               <button
                 onClick={handleCopy}
-                className={`flex items-center gap-1 px-2 py-1 text-xs border ${
-                  copied
-                    ? "bg-gray-800 text-white border-gray-800"
-                    : "bg-white text-gray-600 border-gray-300 hover:bg-gray-100"
-                }`}
+                className={`flex items-center gap-1 px-2.5 py-1 text-xs rounded-md border transition-all duration-200
+                  ${copied
+                    ? "bg-gray-900 text-white border-gray-900"
+                    : "bg-white text-gray-600 border-gray-300 hover:bg-gray-100"}`}
               >
                 {copied ? (
                   <>
@@ -114,7 +127,7 @@ export default function PromptCard({ prompt, index }: PromptCardProps) {
                       <path
                         strokeLinecap="round"
                         strokeLinejoin="round"
-                        strokeWidth={2}
+                        strokeWidth={1.8}
                         d="M5 13l4 4L19 7"
                       />
                     </svg>
@@ -131,7 +144,7 @@ export default function PromptCard({ prompt, index }: PromptCardProps) {
                       <path
                         strokeLinecap="round"
                         strokeLinejoin="round"
-                        strokeWidth={2}
+                        strokeWidth={1.8}
                         d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
                       />
                     </svg>
@@ -140,6 +153,8 @@ export default function PromptCard({ prompt, index }: PromptCardProps) {
                 )}
               </button>
             </div>
+
+            {/* Prompt Text */}
             <p className="text-gray-700 leading-relaxed text-sm pr-20 whitespace-pre-line font-mono">
               {prompt.prompt}
             </p>
@@ -147,10 +162,10 @@ export default function PromptCard({ prompt, index }: PromptCardProps) {
 
           {/* Tips */}
           {prompt.tips && (
-            <div className="pt-2">
+            <div className="pt-1">
               <button
                 onClick={() => setShowTips(!showTips)}
-                className="flex items-center gap-1 text-xs text-gray-600 hover:text-gray-900"
+                className="flex items-center gap-1 text-xs text-gray-500 hover:text-gray-800 transition-colors"
               >
                 <svg
                   className="w-3 h-3"
@@ -161,15 +176,16 @@ export default function PromptCard({ prompt, index }: PromptCardProps) {
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    strokeWidth={2}
+                    strokeWidth={1.8}
                     d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                   />
                 </svg>
                 {showTips ? "Sembunyikan tips" : "Lihat tips"}
               </button>
+
               {showTips && (
-                <div className="mt-2 p-3 bg-gray-100 border-l-4 border-gray-400">
-                  <p className="text-gray-700 text-xs leading-relaxed">
+                <div className="mt-2 p-3 rounded-md bg-gray-50 border border-gray-200">
+                  <p className="text-gray-600 text-xs leading-relaxed">
                     {prompt.tips}
                   </p>
                 </div>

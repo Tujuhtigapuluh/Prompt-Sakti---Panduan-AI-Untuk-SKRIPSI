@@ -12,7 +12,6 @@ function App() {
   const [searchQuery, setSearchQuery] = useState("");
   const [showScrollTop, setShowScrollTop] = useState(false);
 
-  // Filter sections based on search
   const filteredSections = useMemo(() => {
     if (!searchQuery.trim()) return sections;
     const q = searchQuery.toLowerCase();
@@ -29,7 +28,6 @@ function App() {
       .filter((section) => section.prompts.length > 0);
   }, [searchQuery]);
 
-  // Intersection observer for active section
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -39,7 +37,7 @@ function App() {
           }
         });
       },
-      { threshold: 0.1, rootMargin: "-100px 0px -50% 0px" }
+      { threshold: 0.15, rootMargin: "-120px 0px -50% 0px" }
     );
 
     sections.forEach((section) => {
@@ -50,7 +48,6 @@ function App() {
     return () => observer.disconnect();
   }, []);
 
-  // Scroll top button visibility
   useEffect(() => {
     const handleScroll = () => {
       setShowScrollTop(window.scrollY > 600);
@@ -69,7 +66,7 @@ function App() {
   );
 
   return (
-    <div className="min-h-screen bg-[#fafafa]">
+    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
       {/* Sidebar */}
       <Sidebar
         sections={sections}
@@ -85,69 +82,85 @@ function App() {
         onSearchChange={setSearchQuery}
       />
 
-      {/* Main Content */}
+      {/* Main */}
       <main className="lg:pl-72">
         <div className="max-w-3xl mx-auto px-5 py-10">
-          {/* Hero - hanya tampil tanpa search */}
+          
           {!searchQuery && <HeroSection />}
-
-          {/* How to Use - hanya tampil tanpa search */}
           {!searchQuery && <HowToUse />}
 
-          {/* Search results info - styling lebih sederhana */}
+          {/* Search Info */}
           {searchQuery && (
-            <div className="mb-6 p-4 bg-slate-100 border-l-4 border-slate-400">
-              <p className="text-slate-700 text-sm">
-                Ditemukan <strong>{totalFilteredPrompts} prompt</strong> dari{" "}
-                <strong>{filteredSections.length} bagian</strong> untuk "{searchQuery}"
+            <div className="mb-8 p-4 rounded-lg bg-white border border-gray-200 shadow-sm">
+              <p className="text-gray-700 text-sm">
+                Ditemukan <strong>{totalFilteredPrompts}</strong> prompt dari{" "}
+                <strong>{filteredSections.length}</strong> bagian
+              </p>
+              <p className="text-xs text-gray-500 mt-1">
+                untuk pencarian: "{searchQuery}"
               </p>
             </div>
           )}
 
-          {/* Sections dengan spacing yang lebih natural */}
+          {/* Sections */}
           <div className="space-y-16">
             {filteredSections.map((section) => (
               <SectionPanel key={section.id} section={section} />
             ))}
           </div>
 
-          {/* No results - styling lebih flat */}
+          {/* Empty State */}
           {searchQuery && filteredSections.length === 0 && (
-            <div className="text-center py-16 border border-dashed border-gray-300 rounded-sm">
-              <h3 className="text-lg font-medium text-gray-700 mb-2">
-                Tidak ada hasil
+            <div className="text-center py-20">
+              <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gray-100 mb-4">
+                <svg
+                  className="w-5 h-5 text-gray-400"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={1.8}
+                    d="M8 16l4-4-4-4m8 8l-4-4 4-4"
+                  />
+                </svg>
+              </div>
+
+              <h3 className="text-lg font-medium text-gray-800 mb-1">
+                Tidak ditemukan
               </h3>
               <p className="text-gray-500 text-sm">
-                Coba kata kunci lain seperti: latar belakang, hipotesis, atau kuesioner
+                Coba kata lain seperti “latar belakang” atau “hipotesis”
               </p>
             </div>
           )}
 
-          {/* Footer - lebih minimalis */}
-          <footer className="mt-20 mb-10 text-center border-t border-gray-200 pt-8">
-            <h4 className="text-base font-medium text-gray-800 mb-2">
+          {/* Footer */}
+          <footer className="mt-24 text-center border-t border-gray-100 pt-8">
+            <h4 className="text-sm font-semibold text-gray-900 mb-2 tracking-tight">
               Kitab Prompt Skripsi
             </h4>
-            <p className="text-gray-500 text-sm max-w-md mx-auto leading-relaxed">
-              Kumpulan prompt untuk membantu penulisan skripsi. 
-              Dari pencarian judul hingga persiapan sidang.
+            <p className="text-gray-500 text-sm max-w-sm mx-auto leading-relaxed">
+              Kumpulan prompt untuk membantu proses penulisan skripsi secara lebih terstruktur.
             </p>
             <p className="text-gray-400 text-xs mt-6">
-              Gunakan sebagai referensi, bukan pengganti pemikiran kritis.
+              Gunakan dengan bijak dan tetap lakukan validasi akademik.
             </p>
           </footer>
+
         </div>
       </main>
 
-      {/* Scroll to top - styling lebih flat */}
+      {/* Scroll to top */}
       {showScrollTop && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-5 right-5 w-10 h-10 bg-gray-700 hover:bg-gray-800 text-white shadow-md flex items-center justify-center transition-colors"
-          aria-label="Kembali ke atas"
+          className="fixed bottom-6 right-6 w-11 h-11 rounded-full bg-white border border-gray-200 shadow-md flex items-center justify-center hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200"
         >
           <svg
-            className="w-4 h-4"
+            className="w-4 h-4 text-gray-700"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -155,7 +168,7 @@ function App() {
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
-              strokeWidth={2}
+              strokeWidth={1.8}
               d="M5 15l7-7 7 7"
             />
           </svg>

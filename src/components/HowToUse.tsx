@@ -30,22 +30,34 @@ export default function HowToUse() {
   return (
     <div
       id="cara-pakai"
-      className="bg-white border border-gray-200 p-6 mb-12 scroll-mt-24"
+      className="bg-white/80 backdrop-blur-sm border border-gray-200 rounded-xl p-6 mb-12 scroll-mt-24"
     >
-      <div className="flex items-center gap-2 mb-6 border-b border-gray-200 pb-4">
-        <h2 className="text-xl font-semibold text-gray-800">
+      <div className="flex items-center gap-2 mb-6 border-b border-gray-100 pb-4">
+        <h2 className="text-xl font-semibold text-gray-900 tracking-tight">
           Cara Penggunaan
         </h2>
       </div>
 
-      <div className="space-y-4">
+      {/* Steps */}
+      <div className="space-y-5">
         {steps.map((step, i) => (
-          <div key={i} className="flex gap-4 p-4 bg-gray-50 border border-gray-100">
+          <div
+            key={i}
+            className="relative flex gap-4 p-4 rounded-lg border border-gray-100 bg-gray-50/60 hover:bg-white hover:shadow-sm transition-all duration-200"
+          >
+            {/* Connector line */}
+            {i !== steps.length - 1 && (
+              <div className="absolute left-6 top-12 w-px h-[calc(100%-3rem)] bg-gray-200" />
+            )}
+
+            {/* Number */}
             <div className="flex-shrink-0">
-              <span className="inline-flex items-center justify-center w-8 h-8 bg-gray-800 text-white text-sm font-medium">
+              <span className="flex items-center justify-center w-8 h-8 rounded-full bg-gray-900 text-white text-xs font-semibold shadow-sm">
                 {step.num}
               </span>
             </div>
+
+            {/* Content */}
             <div>
               <h3 className="font-medium text-gray-900 mb-1">
                 {step.title}
@@ -58,29 +70,30 @@ export default function HowToUse() {
         ))}
       </div>
 
-      {/* Notices - lebih sederhana */}
-      <div className="mt-6 space-y-3">
-        <div className="p-4 bg-gray-100 border-l-4 border-gray-600">
+      {/* Notices */}
+      <div className="mt-8 space-y-3">
+        
+        <div className="p-4 rounded-lg bg-gray-50 border border-gray-100">
           <p className="text-gray-700 text-sm leading-relaxed">
             <strong>Catatan:</strong> Role Setting cukup digunakan <strong>sekali di awal sesi</strong>. 
-            Setelah itu, semua prompt lainnya langsung berisi instruksi spesifik — lebih efisien dan fokus.
+            Setelah itu, semua prompt langsung fokus ke instruksi spesifik.
           </p>
         </div>
-        
-        <div className="p-4 bg-gray-100 border-l-4 border-gray-600">
+
+        <div className="p-4 rounded-lg bg-gray-50 border border-gray-100">
           <p className="text-gray-700 text-sm leading-relaxed">
-            <strong>Anti-Turnitin:</strong> Selama Role Setting aktif, output AI akan mengikuti aturan 
-            anti-plagiarisme otomatis. Namun, Anda tetap harus me-review hasilnya.
+            <strong>Anti-Turnitin:</strong> Output AI akan lebih orisinal selama Role Setting aktif, 
+            namun tetap perlu pengecekan ulang.
           </p>
         </div>
-        
-        <div className="p-4 bg-gray-100 border-l-4 border-gray-600">
+
+        <div className="p-4 rounded-lg bg-gray-50 border border-gray-100">
           <p className="text-gray-700 text-sm leading-relaxed">
-            <strong>Penting:</strong> Prompt ini adalah template panduan. Hasil dari AI tetap harus Anda review,
-            sesuaikan dengan pedoman skripsi kampus, dan validasi kebenarannya. AI adalah asisten, bukan pengganti
-            proses berpikir Anda. Selalu konsultasikan dengan dosen pembimbing.
+            <strong>Penting:</strong> Gunakan hasil sebagai referensi. Tetap sesuaikan dengan pedoman kampus 
+            dan konsultasikan dengan dosen pembimbing.
           </p>
         </div>
+
       </div>
     </div>
   );

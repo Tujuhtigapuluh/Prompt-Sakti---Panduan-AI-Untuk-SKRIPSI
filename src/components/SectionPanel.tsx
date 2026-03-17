@@ -7,32 +7,28 @@ interface SectionPanelProps {
 
 export default function SectionPanel({ section }: SectionPanelProps) {
   return (
-    <div id={section.id} className="scroll-mt-24 mb-12">
+    <div id={section.id} className="scroll-mt-24 mb-14">
+      
       {/* Section Header */}
-      <div className="bg-white border border-gray-300 p-5 mb-4">
-        <div className="flex items-start gap-3 mb-2">
-          <h2 className="text-xl font-semibold text-gray-800">
-            {section.title}
-          </h2>
-        </div>
-        <p className="text-gray-600 text-sm leading-relaxed mb-3">
-          {section.description}
-        </p>
-        <div className="flex items-center gap-2 text-xs text-gray-500">
-          <svg
-            className="w-4 h-4"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
-            />
-          </svg>
-          {section.prompts.length} prompt
+      <div className="relative bg-white/80 backdrop-blur-sm border border-gray-200 rounded-xl p-5 mb-5">
+        
+        {/* Accent line */}
+        <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-gray-900 rounded-l-xl" />
+
+        <div className="pl-3">
+          <div className="flex items-start justify-between gap-3 mb-2">
+            <h2 className="text-lg md:text-xl font-semibold text-gray-900 tracking-tight">
+              {section.title}
+            </h2>
+
+            <span className="text-[11px] px-2 py-1 rounded-md bg-gray-100 text-gray-600">
+              {section.prompts.length} prompt
+            </span>
+          </div>
+
+          <p className="text-gray-600 text-sm leading-relaxed max-w-2xl">
+            {section.description}
+          </p>
         </div>
       </div>
 

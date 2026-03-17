@@ -23,69 +23,92 @@ export default function Sidebar({
 
   return (
     <>
-      {/* Backdrop for mobile */}
+      {/* Backdrop */}
       {isOpen && (
         <div
-          className="fixed inset-0 bg-black/50 z-40 lg:hidden"
+          className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40 lg:hidden"
           onClick={onClose}
         />
       )}
 
       {/* Sidebar */}
       <aside
-        className={`fixed top-0 left-0 h-full w-64 bg-white border-r border-gray-300 z-50 transform transition-transform duration-200 overflow-y-auto
-          ${isOpen ? "translate-x-0" : "-translate-x-full"} lg:translate-x-0 lg:z-30`}
+        className={`fixed top-0 left-0 h-full w-64 bg-white/90 backdrop-blur-md border-r border-gray-200 z-50 transform transition-all duration-300 ease-out overflow-y-auto
+        ${isOpen ? "translate-x-0" : "-translate-x-full"} lg:translate-x-0 lg:z-30`}
       >
         {/* Logo */}
-        <div className="sticky top-0 bg-white border-b border-gray-200 p-4 z-10">
-          <div>
-            <h1 className="text-base font-semibold text-gray-800">
-              Kitab Prompt
-            </h1>
-            <p className="text-xs text-gray-500">Panduan Skripsi</p>
-          </div>
+        <div className="sticky top-0 bg-white/80 backdrop-blur-md border-b border-gray-100 p-4 z-10">
+          <h1 className="text-sm font-semibold text-gray-900 tracking-tight">
+            Kitab Prompt
+          </h1>
+          <p className="text-[11px] text-gray-500">
+            Panduan Skripsi
+          </p>
         </div>
 
         {/* Navigation */}
-        <nav className="p-3 space-y-0.5">
-          <p className="text-xs font-medium text-gray-400 px-2 mb-2">
-            Daftar Bab
+        <nav className="p-3 space-y-1">
+          <p className="text-[11px] font-medium text-gray-400 px-2 mb-2 tracking-wide">
+            DAFTAR BAB
           </p>
-          {sections.map((section) => (
-            <button
-              key={section.id}
-              onClick={() => scrollTo(section.id)}
-              className={`w-full flex items-center gap-2 px-2 py-2 text-left text-sm ${
-                activeSection === section.id
-                  ? "bg-gray-200 text-gray-900 font-medium"
-                  : "text-gray-600 hover:bg-gray-100"
-              }`}
-            >
-              <span className="leading-snug truncate">
-                {section.title.split("—")[0].split(":")[0].trim()}
-              </span>
-              <span className="ml-auto text-xs text-gray-400">
-                {section.prompts.length}
-              </span>
-            </button>
-          ))}
+
+          {sections.map((section) => {
+            const isActive = activeSection === section.id;
+
+            return (
+              <button
+                key={section.id}
+                onClick={() => scrollTo(section.id)}
+                className={`group relative w-full flex items-center gap-2 px-3 py-2 rounded-md text-left text-sm transition-all duration-200
+                  ${
+                    isActive
+                      ? "bg-gray-900 text-white shadow-sm"
+                      : "text-gray-600 hover:bg-gray-100"
+                  }`}
+              >
+                {/* Active indicator */}
+                {isActive && (
+                  <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[3px] h-5 bg-white rounded-r" />
+                )}
+
+                {/* Title */}
+                <span className="leading-snug truncate">
+                  {section.title.split("—")[0].split(":")[0].trim()}
+                </span>
+
+                {/* Count */}
+                <span
+                  className={`ml-auto text-[11px] px-1.5 py-0.5 rounded 
+                  ${
+                    isActive
+                      ? "bg-white/20 text-white"
+                      : "text-gray-400 group-hover:text-gray-600"
+                  }`}
+                >
+                  {section.prompts.length}
+                </span>
+              </button>
+            );
+          })}
         </nav>
 
         {/* Stats */}
-        <div className="p-3 mx-3 mb-3 bg-gray-100 border border-gray-200">
-          <p className="text-xs font-medium text-gray-600 mb-2">
-            Statistik
+        <div className="p-3 mx-3 mb-4 mt-2 rounded-lg bg-gray-50 border border-gray-100">
+          <p className="text-[11px] font-medium text-gray-500 mb-2 tracking-wide">
+            STATISTIK
           </p>
-          <div className="space-y-1">
+
+          <div className="space-y-1.5">
             <div className="flex justify-between text-xs">
-              <span className="text-gray-500">Total Bagian</span>
-              <span className="font-medium text-gray-800">
+              <span className="text-gray-500">Bagian</span>
+              <span className="font-medium text-gray-900">
                 {sections.length}
               </span>
             </div>
+
             <div className="flex justify-between text-xs">
-              <span className="text-gray-500">Total Prompt</span>
-              <span className="font-medium text-gray-800">
+              <span className="text-gray-500">Prompt</span>
+              <span className="font-medium text-gray-900">
                 {sections.reduce((acc, s) => acc + s.prompts.length, 0)}
               </span>
             </div>
