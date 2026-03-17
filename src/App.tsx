@@ -69,7 +69,7 @@ function App() {
   );
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-[#fafafa]">
       {/* Sidebar */}
       <Sidebar
         sections={sections}
@@ -87,74 +87,67 @@ function App() {
 
       {/* Main Content */}
       <main className="lg:pl-72">
-        <div className="max-w-4xl mx-auto px-4 md:px-6 py-8">
-          {/* Hero */}
+        <div className="max-w-3xl mx-auto px-5 py-10">
+          {/* Hero - hanya tampil tanpa search */}
           {!searchQuery && <HeroSection />}
 
-          {/* How to Use */}
+          {/* How to Use - hanya tampil tanpa search */}
           {!searchQuery && <HowToUse />}
 
-          {/* Search results info */}
+          {/* Search results info - styling lebih sederhana */}
           {searchQuery && (
-            <div className="mb-6 p-4 bg-indigo-50 border border-indigo-200 rounded-xl">
-              <p className="text-indigo-800 text-sm">
-                🔍 Ditemukan{" "}
-                <strong>{totalFilteredPrompts} prompt</strong> dari{" "}
-                <strong>{filteredSections.length} bagian</strong> untuk pencarian{" "}
-                "<strong>{searchQuery}</strong>"
+            <div className="mb-6 p-4 bg-slate-100 border-l-4 border-slate-400">
+              <p className="text-slate-700 text-sm">
+                Ditemukan <strong>{totalFilteredPrompts} prompt</strong> dari{" "}
+                <strong>{filteredSections.length} bagian</strong> untuk "{searchQuery}"
               </p>
             </div>
           )}
 
-          {/* Sections */}
-          <div className="space-y-12">
+          {/* Sections dengan spacing yang lebih natural */}
+          <div className="space-y-16">
             {filteredSections.map((section) => (
               <SectionPanel key={section.id} section={section} />
             ))}
           </div>
 
-          {/* No results */}
+          {/* No results - styling lebih flat */}
           {searchQuery && filteredSections.length === 0 && (
-            <div className="text-center py-16">
-              <span className="text-6xl mb-4 block">🔍</span>
-              <h3 className="text-xl font-bold text-gray-800 mb-2">
-                Prompt Tidak Ditemukan
+            <div className="text-center py-16 border border-dashed border-gray-300 rounded-sm">
+              <h3 className="text-lg font-medium text-gray-700 mb-2">
+                Tidak ada hasil
               </h3>
-              <p className="text-gray-500">
-                Coba gunakan kata kunci lain, misalnya: "latar belakang",
-                "hipotesis", "kuesioner"
+              <p className="text-gray-500 text-sm">
+                Coba kata kunci lain seperti: latar belakang, hipotesis, atau kuesioner
               </p>
             </div>
           )}
 
-          {/* Footer */}
-          <footer className="mt-16 mb-8 text-center border-t border-gray-200 pt-8">
-            <div className="inline-flex items-center gap-2 mb-3">
-              <span className="text-2xl">📜</span>
-              <span className="text-lg font-bold text-gray-800">
-                Kitab Prompt Skripsi
-              </span>
-            </div>
-            <p className="text-gray-500 text-sm max-w-lg mx-auto leading-relaxed">
-              Panduan lengkap prompt AI untuk penulisan skripsi yang benar dan
-              sistematis. Dari pencarian judul hingga persiapan sidang.
+          {/* Footer - lebih minimalis */}
+          <footer className="mt-20 mb-10 text-center border-t border-gray-200 pt-8">
+            <h4 className="text-base font-medium text-gray-800 mb-2">
+              Kitab Prompt Skripsi
+            </h4>
+            <p className="text-gray-500 text-sm max-w-md mx-auto leading-relaxed">
+              Kumpulan prompt untuk membantu penulisan skripsi. 
+              Dari pencarian judul hingga persiapan sidang.
             </p>
-            <p className="text-gray-400 text-xs mt-4">
-              Gunakan dengan bijak — AI adalah asisten, bukan pengganti proses
-              berpikir Anda. 🎓
+            <p className="text-gray-400 text-xs mt-6">
+              Gunakan sebagai referensi, bukan pengganti pemikiran kritis.
             </p>
           </footer>
         </div>
       </main>
 
-      {/* Scroll to top button */}
+      {/* Scroll to top - styling lebih flat */}
       {showScrollTop && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-6 right-6 w-12 h-12 bg-indigo-600 hover:bg-indigo-700 text-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 z-50 hover:scale-110"
+          className="fixed bottom-5 right-5 w-10 h-10 bg-gray-700 hover:bg-gray-800 text-white shadow-md flex items-center justify-center transition-colors"
+          aria-label="Kembali ke atas"
         >
           <svg
-            className="w-5 h-5"
+            className="w-4 h-4"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
