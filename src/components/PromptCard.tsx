@@ -8,16 +8,16 @@ interface PromptCardProps {
 
 function getBadgeStyle(badge: string): string {
   if (badge.includes("WAJIB"))
-    return "bg-red-100 text-red-700 border-red-200";
+    return "bg-gray-800 text-white";
   if (badge.includes("KUALITATIF"))
-    return "bg-green-100 text-green-700 border-green-200";
+    return "bg-gray-200 text-gray-800";
   if (badge.includes("KUANTITATIF"))
-    return "bg-blue-100 text-blue-700 border-blue-200";
+    return "bg-gray-300 text-gray-800";
   if (badge.includes("STARTER"))
-    return "bg-purple-100 text-purple-700 border-purple-200";
+    return "bg-gray-100 text-gray-800 border border-gray-300";
   if (badge.includes("BARU"))
-    return "bg-amber-100 text-amber-700 border-amber-200";
-  return "bg-gray-100 text-gray-700 border-gray-200";
+    return "bg-gray-100 text-gray-800";
+  return "bg-gray-100 text-gray-700";
 }
 
 export default function PromptCard({ prompt, index }: PromptCardProps) {
@@ -43,28 +43,28 @@ export default function PromptCard({ prompt, index }: PromptCardProps) {
   };
 
   return (
-    <div className={`bg-white border rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden ${
-      prompt.badge?.includes("WAJIB") ? "border-red-300 ring-1 ring-red-100" : "border-gray-200"
+    <div className={`bg-white border overflow-hidden ${
+      prompt.badge?.includes("WAJIB") ? "border-gray-800" : "border-gray-200"
     }`}>
       {/* Header */}
       <button
         onClick={() => setExpanded(!expanded)}
-        className="w-full flex items-center justify-between p-5 text-left hover:bg-gray-50 transition-colors"
+        className="w-full flex items-center justify-between p-4 text-left hover:bg-gray-50"
       >
         <div className="flex items-center gap-3 flex-wrap">
-          <span className={`flex-shrink-0 w-8 h-8 rounded-full text-white text-sm font-bold flex items-center justify-center ${
+          <span className={`flex-shrink-0 w-6 h-6 text-white text-xs font-medium flex items-center justify-center ${
             prompt.badge?.includes("WAJIB")
-              ? "bg-gradient-to-br from-red-500 to-rose-600"
-              : "bg-gradient-to-br from-indigo-500 to-purple-600"
+              ? "bg-gray-800"
+              : "bg-gray-600"
           }`}>
             {index + 1}
           </span>
-          <h3 className="text-lg font-semibold text-gray-800">
+          <h3 className="text-base font-medium text-gray-800">
             {prompt.title}
           </h3>
           {prompt.badge && (
             <span
-              className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold border ${getBadgeStyle(
+              className={`inline-flex items-center px-2 py-0.5 text-xs ${getBadgeStyle(
                 prompt.badge
               )}`}
             >
@@ -73,7 +73,7 @@ export default function PromptCard({ prompt, index }: PromptCardProps) {
           )}
         </div>
         <svg
-          className={`w-5 h-5 text-gray-400 transition-transform duration-300 flex-shrink-0 ml-2 ${
+          className={`w-4 h-4 text-gray-500 flex-shrink-0 ml-2 ${
             expanded ? "rotate-180" : ""
           }`}
           fill="none"
@@ -91,26 +91,22 @@ export default function PromptCard({ prompt, index }: PromptCardProps) {
 
       {/* Content */}
       {expanded && (
-        <div className="px-5 pb-5 space-y-4 animate-fadeIn">
+        <div className="px-4 pb-4 space-y-3 border-t border-gray-100">
           {/* Prompt Text */}
-          <div className={`relative rounded-xl p-5 border ${
-            prompt.badge?.includes("WAJIB")
-              ? "bg-gradient-to-br from-red-50 to-rose-50 border-red-100"
-              : "bg-gradient-to-br from-gray-50 to-slate-50 border-gray-100"
-          }`}>
-            <div className="absolute top-3 right-3 flex gap-2">
+          <div className="relative bg-gray-50 border border-gray-200 p-4 mt-3">
+            <div className="absolute top-2 right-2">
               <button
                 onClick={handleCopy}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium transition-all duration-200 ${
+                className={`flex items-center gap-1 px-2 py-1 text-xs border ${
                   copied
-                    ? "bg-green-100 text-green-700 border border-green-200"
-                    : "bg-white text-gray-600 border border-gray-200 hover:bg-indigo-50 hover:text-indigo-600 hover:border-indigo-200"
+                    ? "bg-gray-800 text-white border-gray-800"
+                    : "bg-white text-gray-600 border-gray-300 hover:bg-gray-100"
                 }`}
               >
                 {copied ? (
                   <>
                     <svg
-                      className="w-4 h-4"
+                      className="w-3 h-3"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -122,12 +118,12 @@ export default function PromptCard({ prompt, index }: PromptCardProps) {
                         d="M5 13l4 4L19 7"
                       />
                     </svg>
-                    Tersalin!
+                    Tersalin
                   </>
                 ) : (
                   <>
                     <svg
-                      className="w-4 h-4"
+                      className="w-3 h-3"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -139,25 +135,25 @@ export default function PromptCard({ prompt, index }: PromptCardProps) {
                         d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
                       />
                     </svg>
-                    Salin Prompt
+                    Salin
                   </>
                 )}
               </button>
             </div>
-            <p className="text-gray-700 leading-relaxed text-[15px] pr-28 whitespace-pre-line">
+            <p className="text-gray-700 leading-relaxed text-sm pr-20 whitespace-pre-line font-mono">
               {prompt.prompt}
             </p>
           </div>
 
           {/* Tips */}
           {prompt.tips && (
-            <div>
+            <div className="pt-2">
               <button
                 onClick={() => setShowTips(!showTips)}
-                className="flex items-center gap-2 text-sm font-medium text-amber-600 hover:text-amber-700 transition-colors"
+                className="flex items-center gap-1 text-xs text-gray-600 hover:text-gray-900"
               >
                 <svg
-                  className="w-4 h-4"
+                  className="w-3 h-3"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -166,15 +162,15 @@ export default function PromptCard({ prompt, index }: PromptCardProps) {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth={2}
-                    d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+                    d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                   />
                 </svg>
-                {showTips ? "Sembunyikan Tips" : "Lihat Tips Penggunaan"}
+                {showTips ? "Sembunyikan tips" : "Lihat tips"}
               </button>
               {showTips && (
-                <div className="mt-2 p-4 bg-amber-50 border border-amber-200 rounded-xl animate-fadeIn">
-                  <p className="text-amber-800 text-sm leading-relaxed">
-                    💡 {prompt.tips}
+                <div className="mt-2 p-3 bg-gray-100 border-l-4 border-gray-400">
+                  <p className="text-gray-700 text-xs leading-relaxed">
+                    {prompt.tips}
                   </p>
                 </div>
               )}

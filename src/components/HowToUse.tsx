@@ -1,107 +1,84 @@
 export default function HowToUse() {
   const steps = [
     {
-      num: "01",
-      title: "Aktifkan Role Setting (Sekali Saja)",
-      desc: "Buka '🛡️ Prompt Master' dan salin Role Setting ke AI. Ini mengatur AI sebagai ahli akademik & anti-Turnitin. Cukup SEKALI di awal sesi!",
-      icon: "🛡️",
+      num: "1",
+      title: "Aktifkan Role Setting",
+      desc: "Salin Role Setting ke AI di awal sesi. Ini mengatur AI sebagai ahli akademik & anti-Turnitin. Cukup sekali saja.",
     },
     {
-      num: "02",
+      num: "2",
       title: "Pilih Bagian Skripsi",
       desc: "Navigasi ke bab yang sedang dikerjakan. Prompt sudah berisi instruksi langsung tanpa perlu mengulang role setting.",
-      icon: "📂",
     },
     {
-      num: "03",
-      title: "Kustomisasi & Isi Data",
-      desc: 'Ganti bagian dalam tanda [...] dengan informasi penelitian Anda: judul, variabel, metode, jumlah paragraf, dll.',
-      icon: "✏️",
+      num: "3",
+      title: "Kustomisasi Data",
+      desc: "Ganti bagian dalam tanda [...] dengan informasi penelitian Anda: judul, variabel, metode, jumlah paragraf, dll.",
     },
     {
-      num: "04",
+      num: "4",
       title: "Salin & Tempel ke AI",
       desc: "Klik tombol 'Salin Prompt', tempel ke ChatGPT / Claude / Gemini. Hasil akan orisinal karena Role Setting sudah aktif.",
-      icon: "🤖",
     },
     {
-      num: "05",
+      num: "5",
       title: "Review & Konsultasi",
-      desc: "Periksa output AI, sesuaikan dengan pedoman kampus, dan SELALU konsultasikan dengan dosen pembimbing Anda.",
-      icon: "✅",
+      desc: "Periksa output AI, sesuaikan dengan pedoman kampus, dan selalu konsultasikan dengan dosen pembimbing Anda.",
     },
   ];
 
   return (
     <div
       id="cara-pakai"
-      className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-3xl p-8 md:p-10 mb-10 border border-indigo-100 scroll-mt-24"
+      className="bg-white border border-gray-200 p-6 mb-12 scroll-mt-24"
     >
-      <div className="flex items-center gap-3 mb-6">
-        <span className="text-3xl">📖</span>
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-800">
-          Cara Menggunakan Kitab Ini
+      <div className="flex items-center gap-2 mb-6 border-b border-gray-200 pb-4">
+        <h2 className="text-xl font-semibold text-gray-800">
+          Cara Penggunaan
         </h2>
       </div>
 
-      <div className="grid md:grid-cols-5 gap-4">
+      <div className="space-y-4">
         {steps.map((step, i) => (
-          <div key={i} className="relative">
-            <div className={`bg-white rounded-2xl p-5 h-full shadow-sm border hover:shadow-md transition-shadow ${
-              i === 0 ? "border-red-200 ring-1 ring-red-100" : "border-gray-100"
-            }`}>
-              <div className="flex items-center gap-2 mb-3">
-                <span className="text-2xl">{step.icon}</span>
-                <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${
-                  i === 0
-                    ? "text-red-600 bg-red-50"
-                    : "text-indigo-500 bg-indigo-50"
-                }`}>
-                  STEP {step.num}
-                </span>
-              </div>
-              <h3 className="font-bold text-gray-800 mb-2 text-sm">
+          <div key={i} className="flex gap-4 p-4 bg-gray-50 border border-gray-100">
+            <div className="flex-shrink-0">
+              <span className="inline-flex items-center justify-center w-8 h-8 bg-gray-800 text-white text-sm font-medium">
+                {step.num}
+              </span>
+            </div>
+            <div>
+              <h3 className="font-medium text-gray-900 mb-1">
                 {step.title}
               </h3>
-              <p className="text-gray-600 text-xs leading-relaxed">
+              <p className="text-gray-600 text-sm leading-relaxed">
                 {step.desc}
               </p>
             </div>
-            {i < steps.length - 1 && (
-              <div className="hidden md:flex absolute top-1/2 -right-2 transform -translate-y-1/2 z-10 text-indigo-300">
-                <svg
-                  className="w-4 h-4"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z" />
-                </svg>
-              </div>
-            )}
           </div>
         ))}
       </div>
 
-      {/* Important notice */}
+      {/* Notices - lebih sederhana */}
       <div className="mt-6 space-y-3">
-        <div className="p-4 bg-emerald-50 border border-emerald-200 rounded-xl">
-          <p className="text-emerald-800 text-sm leading-relaxed">
-            💡 <strong>Konsep Baru:</strong> Role Setting cukup digunakan <strong>SEKALI di awal sesi</strong> untuk mengatur AI sebagai ahli akademik anti-Turnitin.
-            Setelah itu, semua prompt lainnya langsung berisi <strong>instruksi spesifik</strong> tanpa perlu mengulang role setting — lebih efisien dan fokus!
+        <div className="p-4 bg-gray-100 border-l-4 border-gray-600">
+          <p className="text-gray-700 text-sm leading-relaxed">
+            <strong>Catatan:</strong> Role Setting cukup digunakan <strong>sekali di awal sesi</strong>. 
+            Setelah itu, semua prompt lainnya langsung berisi instruksi spesifik — lebih efisien dan fokus.
           </p>
         </div>
-        <div className="p-4 bg-red-50 border border-red-200 rounded-xl">
-          <p className="text-red-800 text-sm leading-relaxed">
-            🛡️ <strong>Anti-Turnitin:</strong> Selama Role Setting aktif, seluruh output AI akan mengikuti aturan
-            anti-plagiarisme otomatis. Namun, Anda tetap harus me-review hasilnya — 
-            sentuhan personal dan pemahaman Anda tetap diperlukan.
+        
+        <div className="p-4 bg-gray-100 border-l-4 border-gray-600">
+          <p className="text-gray-700 text-sm leading-relaxed">
+            <strong>Anti-Turnitin:</strong> Selama Role Setting aktif, output AI akan mengikuti aturan 
+            anti-plagiarisme otomatis. Namun, Anda tetap harus me-review hasilnya.
           </p>
         </div>
-        <div className="p-4 bg-amber-50 border border-amber-200 rounded-xl">
-          <p className="text-amber-800 text-sm leading-relaxed">
-            ⚠️ <strong>Penting:</strong> Prompt ini adalah <em>template panduan</em>. Hasil dari AI tetap harus Anda review,
-            sesuaikan dengan pedoman skripsi kampus, dan validasi kebenarannya. AI adalah <em>asisten</em>, bukan pengganti
-            proses berpikir dan penelitian Anda. Selalu konsultasikan dengan dosen pembimbing.
+        
+        <div className="p-4 bg-gray-100 border-l-4 border-gray-600">
+          <p className="text-gray-700 text-sm leading-relaxed">
+            <strong>Penting:</strong> Prompt ini adalah template panduan. Hasil dari AI tetap harus Anda review,
+            sesuaikan dengan pedoman skripsi kampus, dan validasi kebenarannya. AI adalah asisten, bukan pengganti
+            proses berpikir Anda. Selalu konsultasikan dengan dosen pembimbing.
           </p>
         </div>
       </div>
